@@ -37,7 +37,7 @@ for(let i = 0; i < opBtn.length; i++) {
 }
 
 function addNumber(number) {
-    if(text[0] === "0") {
+    if(text[0] === "0" && text.length == 1) {
         text[0] = number;
     } else {
         text.push(number);
