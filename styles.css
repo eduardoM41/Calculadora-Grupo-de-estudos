@@ -5,12 +5,12 @@ body {
 div {
     background-color: black;
     width: 20%;
-    min-width: 300px;
+    min-width: 385px;
     min-height: 500px;
     height: 50%;
     margin: 30px auto auto auto;
     border-radius: 15px;
-    box-shadow: inset 1px 1px 5px 5px darkslategray;
+    box-shadow: inset 1px 1px 10px 5px darkslategray;
 }
 
 h1 {
