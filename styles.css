@@ -1,3 +1,7 @@
+:root {
+    --font-size-prev: 2rem;
+}
+
 body {
     background-color: darkslategray;
 }
@@ -6,11 +10,13 @@ div {
     background-color: black;
     width: 20%;
     min-width: 385px;
-    min-height: 500px;
+    min-height: 610px;
     height: 50%;
     margin: 30px auto auto auto;
     border-radius: 15px;
     box-shadow: inset 1px 1px 10px 5px darkslategray;
+    text-wrap: nowrap;
+    overflow: hidden;
 }
 
 h1 {
@@ -46,6 +52,7 @@ button {
     color: white;
     font-size: 1.7rem;
     box-shadow: inset 0.1px 0.1px 10px darkslateblue;
+    cursor: pointer;
 }
 
 .container {
@@ -58,12 +65,42 @@ button {
 
 .grey {
     background-color: gray;
+    transition-duration: 0.4s;
+}
+
+.grey:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+.grey:active {
+    transition-duration: 0s;
+    transform: translateY(3px);
 }
 
 .black {
     background-color: rgb(27, 27, 27);
+    transition-duration: 0.4s;
+}
+
+.black:hover {
+    background-color: rgb(47, 47, 47);
+}
+
+.black:active {
+    transition-duration: 0s;
+    transform: translateY(3px);
 }
 
 .blue {
     background-color: blue;
+    transition-duration: 0.4s;
+}
+
+.blue:hover {
+    background-color: rgb(100, 100, 255);
+}
+
+.blue:active {
+    transition-duration: 0s;
+    transform: translateY(3px);
 }
