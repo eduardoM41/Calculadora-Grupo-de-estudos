@@ -18,7 +18,7 @@ delBtn.addEventListener("click", del);
 
 percentBtn.addEventListener("click", percent); 
 
-parenBtn.addEventListener("click", parenthesis);
+parenBtn.addEventListener("click", addParenthesis);
 
 dotBtn.addEventListener("click", addDot);
 
@@ -95,50 +95,50 @@ function del() {
 
 function percent() {
     if(curVal.textContent.length < 13) {
-        let number = 0;
-    if(text.join("").match(/\d+\.\d*$/)) {
-        number = parseFloat(text.join("").match(/\d+\.\d*$/));
-        number = number / 100;
-        text = (text.join("").replace(/\d+\.\d*$/,"") + number).split("");
-    } else {
-        number = parseInt(text.join("").match(/\d+$/));
-        number = number / 100;
-        text = (text.join("").replace(/\d+$/,"") + number).split("");
-    }
-    if(curVal.textContent.length < 10) {
-        curVal.style.fontSize = "calc(4rem - (" + curVal.textContent.length + "px) * 2)";
-        container.style.marginTop = "calc((" + curVal.textContent.length + "px) * 2.6)";
-    }
-    curVal.textContent = text.join("");
+            let number = 0;
+        if(text.join("").match(/\d+\.\d*$/)) {
+            number = parseFloat(text.join("").match(/\d+\.\d*$/));
+            number = number / 100;
+            text = (text.join("").replace(/\d+\.\d*$/,"") + number).split("");
+        } else {
+            number = parseInt(text.join("").match(/\d+$/));
+            number = number / 100;
+            text = (text.join("").replace(/\d+$/,"") + number).split("");
+        }
+        if(curVal.textContent.length < 10) {
+            curVal.style.fontSize = "calc(4rem - (" + curVal.textContent.length + "px) * 2)";
+            container.style.marginTop = "calc((" + curVal.textContent.length + "px) * 2.6)";
+        }
+        curVal.textContent = text.join("");
     }
 }
 
-function parenthesis() {
+function addParenthesis() {
     if(curVal.textContent.length < 13) {
         opNum = 0;
-    clNum = 0;
-    if(text.join("") === "0") {
-        text.pop();
-        text.push("(");
-    } else {
-        text.forEach((e) => {
-            if(e === "(") {
-                opNum++;
-            } else if (e === ")") {
-                clNum++;
-            }
-        })
-        if(opNum > clNum) {
-            text.push(")");
-        } else {
+        clNum = 0;
+        if(text.join("") === "0") {
+            text.pop();
             text.push("(");
+        } else {
+            text.forEach((e) => {
+                if(e === "(") {
+                    opNum++;
+                } else if (e === ")") {
+                    clNum++;
+                }
+            })
+            if(opNum > clNum) {
+                text.push(")");
+            } else {
+                text.push("(");
+            }
         }
-    }
-    if(curVal.textContent.length < 10) {
-        curVal.style.fontSize = "calc(4rem - (" + curVal.textContent.length + "px) * 2)";
-        container.style.marginTop = "calc((" + curVal.textContent.length + "px) * 2.6)";
-    }
-    curVal.textContent = text.join("");
+        if(curVal.textContent.length < 10) {
+            curVal.style.fontSize = "calc(4rem - (" + curVal.textContent.length + "px) * 2)";
+            container.style.marginTop = "calc((" + curVal.textContent.length + "px) * 2.6)";
+        }
+        curVal.textContent = text.join("");
     }
 }
 
